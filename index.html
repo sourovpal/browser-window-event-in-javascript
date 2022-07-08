@@ -13,6 +13,19 @@ if (document.hidden){
 window.onbeforeunload = function(e) {
     return 'Dialog text here.'; // confirm reload page
 };    
+ 
     
+    window.onbeforeunload = function (evt) {
+        var message = 'Are you sure you want to leave, cause there are some unsaved changes?';
+        if (typeof evt == 'undefined') {
+            console.log('1', evt);
+            evt = window.event;
+        }
+        if (evt) {
+            console.log('2', evt);
+            evt.returnValue = message;
+        }
+        return message;
+    }
 
 </script>
