@@ -1,10 +1,18 @@
 <script>
 
 document.addEventListener("visibilitychange", function(e) {
-
+var  visibilityState = document.visibilityState;
+console.log(visibilityState);
+if (visibilityState === 'visible') {
+}
 if (document.hidden){
     alert("popup module");
 }
 });
+    
+window.onbeforeunload = function(e) {
+    return 'Dialog text here.'; // confirm reload page
+};    
+    
 
 </script>
